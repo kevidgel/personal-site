@@ -1,0 +1,20 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8 max-w-prose">
+    <!-- Title -->
+    <section class="mb-8">
+        <div class="text-left">
+            <h1 class="text-5xl md:text-5xl font-bold text-gray-900 mb-2">
+                {{ .Title }}
+            </h1>
+            <h2 class="text-lg md:text-lg text-gray-800">
+                {{ .Date.Format "January 2, 2006" }}
+            </h2>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="prose">
+        {{ .Content }}
+    </section>
+</div>
+{{ end }}

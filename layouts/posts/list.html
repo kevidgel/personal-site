@@ -1,0 +1,58 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8 max-w-prose">
+    <!-- Title -->
+    <section class="mb-8">
+        <div class="text-left">
+            <h1 class="text-5xl md:text-5xl font-bold text-gray-900 mb-2">
+                {{ .Title }}
+            </h1>
+        </div>
+    </section>
+
+    <!-- Recent Posts Section -->
+    {{ $posts := where .Site.RegularPages "Type" "posts" }} {{ if $posts }}
+    <section class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Recent Posts</h2>
+            <ul>
+            {{ range first 3 $posts }}
+                <li class="text-lg">
+                    <span class="text-gray-600">{{.Date.Format "January 2, 2006"}}...</span> 
+                    <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
+                </li>
+            {{ end }}
+            </ul>
+    </section>
+    {{ end }}
+
+    <!-- Projects -->
+    {{ $projects := where .Site.RegularPages "Params.topics" "intersect" (slice "project") }} {{ if $projects }}
+    <section class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Projects</h2>
+            <ul>
+            {{ range $projects }}
+                <li class="text-lg">
+                    <span class="text-gray-600">{{.Date.Format "January 2, 2006"}}...</span>
+                    <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
+                </li>
+            {{ end }}
+            </ul>
+    </section>
+    {{ end }}
+
+    <!-- Course reviews -->
+    {{ $reviews := where .Site.RegularPages "Params.topics" "intersect" (slice "review") }} {{ if $reviews }}
+    <section class="mb-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Course Reviews</h2>
+            <ul>
+            {{ range $reviews }}
+                <li class="text-lg">
+                    <span class="text-gray-600">{{.Date.Format "January 2, 2006"}}...</span>
+                    <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
+                </li>
+            {{ end }}
+            </ul>
+    </section>
+    {{ end }}
+    
+</div>
+{{ end }}

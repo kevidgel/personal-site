@@ -1,0 +1,39 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Steven Lee'
+
+[build]
+writeStats = true
+
+[build.buildStats]
+enable = true
+
+[params]
+hero = '/images/profile.jpg'
+
+[menu]
+[[menu.main]]
+name = "about"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "posts"
+url = "/posts"
+weight = 2
+
+[markup]
+[markup.highlight]
+anchorLineNos = false
+codeFences = true
+guessSyntax = true
+hl_Lines = ''
+hl_inline = false
+lineAnchors = ''
+lineNoStart = 1
+lineNos = false
+lineNumbersInTable = true
+noClasses = true
+noHl = false
+style = 'colorful'
+tabWidth = 4

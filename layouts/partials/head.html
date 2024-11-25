@@ -1,0 +1,24 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        {{ if .IsHome }} {{ .Site.Title }} {{ else }} {{ .Title }} | {{
+        .Site.Title }} {{ end }}
+    </title>
+    {{ $styles := resources.Get "/css/style.css" }} {{ $styles = $styles |
+    resources.PostCSS (dict "inlineImports" true) }} {{ if hugo.IsProduction }}
+    {{ $styles = $styles | minify | fingerprint | resources.PostProcess }} {{
+    end }}
+    <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+
+    {{ $js := resources.Get "/js/link-aes.js" }}
+    {{ $opts := dict "targetPath" "/js/main.min.js" "minify" true }}
+
+    {{ if hugo.IsProduction }}
+        {{ $js = $js | js.Build $opts | fingerprint }}
+        <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+    {{ else }}
+        {{ $js = $js | js.Build }}
+        <script src="{{ $js.RelPermalink }}" defer></script>
+    {{ end }}
+</head>

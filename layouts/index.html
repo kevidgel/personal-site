@@ -1,0 +1,172 @@
+{{ define "main" }}
+<div class="container mx-auto px-4 py-8 max-w-prose">
+    <!-- Hero -->
+    <section class="mb-4">
+        <div class="text-left">
+            <h1 class="text-5xl md:text-5xl font-bold text-gray-900 mb-2">
+                {{ .Site.Title }}
+            </h1>
+            <h2 class="text-lg md:text-lg text-gray-800">
+                <b>ECE Student</b> at
+                <a
+                    href="https://www.cmu.edu"
+                    class="text-blue-500 hover:underline"
+                    target="_blank"
+                    >Carnegie Mellon University</a
+                >
+            </h2>
+        </div>
+    </section>
+    <section class="flex flex-col md:flex-row items-start mb-10">
+        <div class="md:w-2/3 text-left order-2 md:order-1 mt-6 md:mt-0">
+            <p class="text-lg">
+                I am a rising senior in Electrical and Computer Engineering at
+                CMU, with minors in Mathematics and Machine Learning. My current academic focuses are systems programming, graphics, and deep learning.
+            </p>
+            <br />
+            <p class="text-lg">
+                Outside of academics, I love playing
+                <a
+                    class="text-blue-500 hover:underline"
+                    href="https://osu.ppy.sh/users/15421092"
+                    target="_blank"
+                    >rhythm games</a
+                >, going bouldering (despite being terrible at it), and
+                traveling.
+            </p>
+            <br />
+            <p class="text-lg">
+                Feel free to contact me for any opportunities or for any reason
+                at all.
+            </p>
+        </div>
+        <div class="md:w-1/3 mt-0 md:ml-8 order-1 md:order-2 flex justify-center">
+            <img
+            src="{{ .Site.Params.hero }}"
+            alt="Hero Image"
+            class="w-1/2 md:w-full h-auto rounded-lg  md:rounded-lg drop-shadow-lg"
+            />
+        </div>
+    </section>
+
+    <!-- Links -->
+    <section class="mb-10">
+        <div class="text-center flex justify-center space-x-2 text-lg">
+            <a
+                href="https://github.com/kevidgel"
+                class="text-lg text-blue-500 hover:underline"
+                target="_blank"
+                >GitHub</a
+            >
+            <span>&middot;</span>
+            <a
+                href="https://linkedin.com/in/stevenl4"
+                class="text-lg text-blue-500 hover:underline"
+                target="_blank"
+                >LinkedIn</a
+            >
+            <span>&middot;</span>
+            <a
+                rel="nofollow, noindex"
+                href="P7zm-P8ROSwlaJJJNg80iuzlPpV2YgXEGZ_cGPH75STSzg"
+                class="email text-lg text-blue-500 hover:underline"
+                >Email</a
+            >
+            <span>&middot;</span>
+            <a
+                rel="nofollow, noindex"
+                href="SMt3m272pul43rNyizAo58gm1-aRtjxxlYVoi0inaQIA"
+                class="email text-lg text-blue-500 hover:underline"
+                >Academic Email</a
+            >
+        </div>
+    </section>
+
+    <!-- Recent Posts Section -->
+    {{ $posts := where .Site.RegularPages "Type" "posts" }} {{ if $posts }}
+    <section class="mb-10">
+        <h2 class="text-3xl font-bold text-gray-900 mb-4">Recent Posts</h2>
+            <ul>
+            {{ range first 3 $posts }}
+                <li class="text-lg">
+                    <span class="text-gray-600">{{.Date.Format "January 2, 2006"}}...</span>
+                    <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
+                </li>
+            {{ end }}
+            </ul>
+    </section>
+    {{ end }}
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-bold mb-4">Experience</h2>
+        <div class="flex flex-row items-center justify-center mb-8">
+            <div class="w-custom-exp-left">
+                <a href="https://www.amazon.com/" target="_blank">
+                    <img
+                        href=""
+                        src="/images/amazon_logo.jpeg"
+                        class="drop-shadow-lg rounded"
+                        title="Amazon"
+                    />
+                </a>
+            </div>
+            <div class="w-custom-exp-right ml-5">
+                <h3><span class="font-bold">Amazon</span> | Seattle, WA</h3>
+                <p>Software Development Engineer Intern (Selling Partner Development Services)</p>
+                <p>September 2024 - November 2024</p>
+            </div>
+        </div>
+        <div class="flex flex-row items-center justify-center mb-8">
+            <div class="w-custom-exp-left">
+                <a href="https://research.adobe.com/" target="_blank">
+                    <img
+                        src="/images/adobe_logo.jpeg"
+                        class="drop-shadow-lg rounded"
+                        title="Adobe"
+                    />
+                </a>
+            </div>
+            <div class="w-custom-exp-right ml-5">
+                <h3><span class="font-bold">Adobe</span> | San Jose, CA</h3>
+                <p>Research Engineer Intern (3D Graphics and Interactive Design Lab)</p>
+                <p>May 2024 - August 2024</p>
+            </div>
+        </div>
+        <div class="flex flex-row items-center justify-center mb-8">
+            <div class="w-custom-exp-left">
+                <a href="https://corp.roblox.com/" target="_blank">
+                    <img
+                        src="/images/roblox_logo.jpeg"
+                        class="drop-shadow-lg rounded"
+                        title="Roblox"
+                    />
+                </a>
+            </div>
+            <div class="w-custom-exp-right ml-5">
+                <h3><span class="font-bold">Roblox</span> | San Mateo, CA</h3>
+                <p>Software Engineer Intern (Game Engine)</p>
+                <p>May 2023 - August 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-10">
+        <h2 class="text-3xl font-bold mb-4">Education</h2>
+        <div class="flex flex-row items-center justify-center mb-8">
+            <div class="w-custom-exp-left">
+                <img
+                    href=""
+                    src="/images/cmu.jpeg"
+                    class="drop-shadow-lg rounded"
+                    title="Carnegie Mellon University"
+                />
+            </div>
+            <div class="w-custom-exp-right ml-5">
+                <h3><span class="font-bold">Carnegie Mellon University</span> | Pittsburgh, PA</h3>
+                <p>Bachelor of Science in Electrical and Computer Engineering | GPA: 3.97</p>
+                <p>2021 - 2025</p>
+            </div>
+        </div>
+    </section>
+</div>
+{{ end }}
