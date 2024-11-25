@@ -16,7 +16,7 @@
             <ul>
             {{ range first 3 $posts }}
                 <li class="text-lg">
-                    <span class="text-gray-600">{{.Date.Format "January 2, 2006"}}...</span> 
+                    <span class="text-gray-600">{{.Date.Format "Jan 2, 2006"}}...</span> 
                     <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
                 </li>
             {{ end }}
@@ -31,7 +31,7 @@
             <ul>
             {{ range $projects }}
                 <li class="text-lg">
-                    <span class="text-gray-600">{{.Date.Format "January 2, 2006"}}...</span>
+                    <span class="text-gray-600">{{.Date.Format "Jan 2, 2006"}}...</span>
                     <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
                 </li>
             {{ end }}
@@ -46,7 +46,7 @@
             <ul>
             {{ range $reviews }}
                 <li class="text-lg">
-                    <span class="text-gray-600">{{.Date.Format "January 2, 2006"}}...</span>
+                    <span class="text-gray-600">{{.Date.Format "Jan 2, 2006"}}...</span>
                     <a href="{{ .RelPermalink }}" class="text-blue-500 hover:underline">{{ .Title }}</a>
                 </li>
             {{ end }}
